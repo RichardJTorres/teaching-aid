@@ -19,13 +19,20 @@ class AssignmentController {
         [assignmentInstance: new Assignment(params)]
     }
 
+    def assign(Long id){
+        def assignmentInstance = Assignment.get(id)
+        Student.list().each {
+            it.addToStudentAssignment(new StudentAssignment(student: it, assignment: assignmentInstance).save(failOnError: true))
+        }
+    }
+
     def save() {
         def assignmentInstance = new Assignment(params)
         if (!assignmentInstance.save(flush: true)) {
             render(view: "create", model: [assignmentInstance: assignmentInstance])
             return
         }
-
+        assign(assignmentInstance.id)
         flash.message = message(code: 'default.created.message', args: [message(code: 'assignment.label', default: 'Assignment'), assignmentInstance.id])
         redirect(action: "show", id: assignmentInstance.id)
     }

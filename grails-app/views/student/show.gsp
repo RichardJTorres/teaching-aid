@@ -23,13 +23,11 @@
 			</g:if>
 			<ol class="property-list student">
 			
-				<g:if test="${studentInstance?.assignment}">
+				<g:if test="${studentInstance?.grade}">
 				<li class="fieldcontain">
-					<span id="assignment-label" class="property-label"><g:message code="student.assignment.label" default="Assignment" /></span>
+					<span id="grade-label" class="property-label"><g:message code="student.grade.label" default="Grade" /></span>
 					
-						<g:each in="${studentInstance.assignment}" var="a">
-						<span class="property-value" aria-labelledby="assignment-label"><g:link controller="assignment" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="grade-label"><g:fieldValue bean="${studentInstance}" field="grade"/></span>
 					
 				</li>
 				</g:if>
@@ -39,6 +37,17 @@
 					<span id="name-label" class="property-label"><g:message code="student.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${studentInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${studentInstance?.studentAssignment}">
+				<li class="fieldcontain">
+					<span id="studentAssignment-label" class="property-label"><g:message code="student.studentAssignment.label" default="Student Assignment" /></span>
+					
+						<g:each in="${studentInstance.studentAssignment}" var="s">
+						<span class="property-value" aria-labelledby="studentAssignment-label"><g:link controller="studentAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

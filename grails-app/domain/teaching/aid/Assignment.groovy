@@ -1,9 +1,9 @@
 package teaching.aid
 
 class Assignment {
-    String assignmentNumber
+    String assignmentName
     Date assignmentDate
-
+    static hasMany = [studentAssignment:StudentAssignment]
     static constraints = {
     }
 }

@@ -26,11 +26,7 @@
 					
 						<g:sortableColumn property="assignmentDate" title="${message(code: 'assignment.assignmentDate.label', default: 'Assignment Date')}" />
 					
-						<g:sortableColumn property="assignmentNumber" title="${message(code: 'assignment.assignmentNumber.label', default: 'Assignment Number')}" />
-					
-						<g:sortableColumn property="grade" title="${message(code: 'assignment.grade.label', default: 'Grade')}" />
-					
-						<th><g:message code="assignment.student.label" default="Student" /></th>
+						<g:sortableColumn property="assignmentNumber" title="${message(code: 'assignment.assignmentName.label', default: 'Assignment Number')}" />
 					
 					</tr>
 				</thead>
@@ -40,11 +36,7 @@
 					
 						<td><g:link action="show" id="${assignmentInstance.id}">${fieldValue(bean: assignmentInstance, field: "assignmentDate")}</g:link></td>
 					
-						<td>${fieldValue(bean: assignmentInstance, field: "assignmentNumber")}</td>
-					
-						<td>${fieldValue(bean: assignmentInstance, field: "grade")}</td>
-					
-						<td>${fieldValue(bean: assignmentInstance, field: "student")}</td>
+						<td>${fieldValue(bean: assignmentInstance, field: "assignmentName")}</td>
 					
 					</tr>
 				</g:each>

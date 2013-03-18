@@ -32,29 +32,22 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${assignmentInstance?.assignmentNumber}">
+				<g:if test="${assignmentInstance?.assignmentName}">
 				<li class="fieldcontain">
 					<span id="assignmentNumber-label" class="property-label"><g:message code="assignment.assignmentNumber.label" default="Assignment Number" /></span>
 					
-						<span class="property-value" aria-labelledby="assignmentNumber-label"><g:fieldValue bean="${assignmentInstance}" field="assignmentNumber"/></span>
+						<span class="property-value" aria-labelledby="assignmentNumber-label"><g:fieldValue bean="${assignmentInstance}" field="assignmentName"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${assignmentInstance?.grade}">
+				<g:if test="${assignmentInstance?.studentAssignment}">
 				<li class="fieldcontain">
-					<span id="grade-label" class="property-label"><g:message code="assignment.grade.label" default="Grade" /></span>
+					<span id="studentAssignment-label" class="property-label"><g:message code="assignment.studentAssignment.label" default="Student Assignment" /></span>
 					
-						<span class="property-value" aria-labelledby="grade-label"><g:fieldValue bean="${assignmentInstance}" field="grade"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${assignmentInstance?.student}">
-				<li class="fieldcontain">
-					<span id="student-label" class="property-label"><g:message code="assignment.student.label" default="Student" /></span>
-					
-						<span class="property-value" aria-labelledby="student-label"><g:link controller="student" action="show" id="${assignmentInstance?.student?.id}">${assignmentInstance?.student?.encodeAsHTML()}</g:link></span>
+						<g:each in="${assignmentInstance.studentAssignment}" var="s">
+						<span class="property-value" aria-labelledby="studentAssignment-label"><g:link controller="studentAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

@@ -10,7 +10,7 @@
 	<g:datePicker name="assignmentDate" precision="day"  value="${assignmentInstance?.assignmentDate}"  />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: assignmentInstance, field: 'assignmentNumber', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: assignmentInstance, field: 'assignmentName', 'error')} ">
 	<label for="assignmentNumber">
 		<g:message code="assignment.assignmentNumber.label" default="Assignment Number" />
 		
@@ -18,19 +18,20 @@
 	<g:textField name="assignmentNumber" value="${assignmentInstance?.assignmentNumber}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: assignmentInstance, field: 'grade', 'error')} required">
-	<label for="grade">
-		<g:message code="assignment.grade.label" default="Grade" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: assignmentInstance, field: 'studentAssignment', 'error')} ">
+	<label for="studentAssignment">
+		<g:message code="assignment.studentAssignment.label" default="Student Assignment" />
+		
 	</label>
-	<g:field name="grade" value="${fieldValue(bean: assignmentInstance, field: 'grade')}" required=""/>
-</div>
+	
+<ul class="one-to-many">
+<g:each in="${assignmentInstance?.studentAssignment?}" var="s">
+    <li><g:link controller="studentAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="studentAssignment" action="create" params="['assignment.id': assignmentInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'studentAssignment.label', default: 'StudentAssignment')])}</g:link>
+</li>
+</ul>
 
-<div class="fieldcontain ${hasErrors(bean: assignmentInstance, field: 'student', 'error')} required">
-	<label for="student">
-		<g:message code="assignment.student.label" default="Student" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="student" name="student.name" from="${teaching.aid.Student.list()}" optionKey="id" required="" value="${assignmentInstance?.student?.id}" class="many-to-one"/>
 </div>
 
