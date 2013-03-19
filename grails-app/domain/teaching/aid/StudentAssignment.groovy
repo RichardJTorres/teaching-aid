@@ -6,4 +6,7 @@ class StudentAssignment {
     static constraints = {
 
     }
+    String toString(){
+        return assignment.toString() + " " + student.name
+    }
 }

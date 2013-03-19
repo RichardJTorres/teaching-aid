@@ -41,12 +41,12 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${studentInstance?.studentAssignment}">
+				<g:if test="${studentInstance?.studentAssignments}">
 				<li class="fieldcontain">
-					<span id="studentAssignment-label" class="property-label"><g:message code="student.studentAssignment.label" default="Student Assignment" /></span>
+					<span id="studentAssignments-label" class="property-label"><g:message code="student.studentAssignments.label" default="Student Assignments" /></span>
 					
-						<g:each in="${studentInstance.studentAssignment}" var="s">
-						<span class="property-value" aria-labelledby="studentAssignment-label"><g:link controller="studentAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						<g:each in="${studentInstance.studentAssignments}" var="s">
+						<span class="property-value" aria-labelledby="studentAssignments-label"><g:link controller="studentAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

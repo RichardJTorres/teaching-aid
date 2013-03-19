@@ -18,14 +18,14 @@
 	<g:textField name="name" value="${studentInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'studentAssignment', 'error')} ">
-	<label for="studentAssignment">
-		<g:message code="student.studentAssignment.label" default="Student Assignment" />
+<div class="fieldcontain ${hasErrors(bean: studentInstance, field: 'studentAssignments', 'error')} ">
+	<label for="studentAssignments">
+		<g:message code="student.studentAssignments.label" default="Student Assignments" />
 		
 	</label>
 	
 <ul class="one-to-many">
-<g:each in="${studentInstance?.studentAssignment?}" var="s">
+<g:each in="${studentInstance?.studentAssignments?}" var="s">
     <li><g:link controller="studentAssignment" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">

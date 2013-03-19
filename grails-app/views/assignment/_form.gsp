@@ -11,11 +11,11 @@
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: assignmentInstance, field: 'assignmentName', 'error')} ">
-	<label for="assignmentNumber">
-		<g:message code="assignment.assignmentNumber.label" default="Assignment Number" />
+	<label for="assignmentName">
+		<g:message code="assignment.assignmentName.label" default="Assignment Name" />
 		
 	</label>
-	<g:textField name="assignmentNumber" value="${assignmentInstance?.assignmentNumber}"/>
+	<g:textField name="assignmentName" value="${assignmentInstance?.assignmentName}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: assignmentInstance, field: 'studentAssignment', 'error')} ">

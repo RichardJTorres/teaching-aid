@@ -3,6 +3,7 @@ package teaching.aid
 import org.springframework.dao.DataIntegrityViolationException
 
 class StudentController {
+    def gradingService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -11,6 +12,7 @@ class StudentController {
     }
 
     def list(Integer max) {
+        gradingService.getAllCourseGrades()
         params.max = Math.min(max ?: 10, 100)
         [studentInstanceList: Student.list(params), studentInstanceTotal: Student.count()]
     }
@@ -99,4 +101,5 @@ class StudentController {
             redirect(action: "show", id: id)
         }
     }
+
 }

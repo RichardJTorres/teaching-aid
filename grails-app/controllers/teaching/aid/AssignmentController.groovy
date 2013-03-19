@@ -22,7 +22,7 @@ class AssignmentController {
     def assign(Long id){
         def assignmentInstance = Assignment.get(id)
         Student.list().each {
-            it.addToStudentAssignment(new StudentAssignment(student: it, assignment: assignmentInstance).save(failOnError: true))
+            it.addToStudentAssignments(new StudentAssignment(student: it, assignment: assignmentInstance).save(failOnError: true))
         }
     }
 

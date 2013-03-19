@@ -3,9 +3,13 @@ package teaching.aid
 class Student {
     String name
     double grade
-    static hasMany = [studentAssignment:StudentAssignment]
+    static hasMany = [studentAssignments:StudentAssignment]
 
     static constraints = {
+    }
+
+    String toString(){
+        return name
     }
 
 }
